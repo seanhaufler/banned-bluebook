@@ -1,0 +1,17 @@
+﻿{
+  "manifest_version": 2,
+  "name": "Banned Bluebook",
+  "description": "This extension supplements Yale's official bluebooking app with the functionality to sort courses by rating and by workload.",
+  "version": "0.1",
+  "permissions": [ "https://ybb.yale.edu/" ],
+  "permissions": [
+    "storage"
+   ],
+  "content_scripts": [{
+    "matches": ["https://ybb.yale.edu/*"],
+    "js": ["jquery.js", "app.js"],
+    "run_at": "document_idle",
+    "css": ["style.css"]
+  }],
+  "web_accessible_resources": ["inject.js"]
+}

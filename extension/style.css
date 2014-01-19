@@ -1,0 +1,27 @@
+
+.meeting .ratings span.quality:not(.none),
+.meeting .ratings span.workload:not(.none) {
+  color: white;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  line-height: 1.5em;
+  margin-right: 1px;
+  margin-left: 2px;
+  padding: 1px 3px;
+}
+
+.meeting .ratings span.workload {
+  margin-right: 3px !important;
+}
+
+.meeting .ratings span.quality.a{ background-color: red; }
+.meeting .ratings span.quality.b{ background-color: #FA991B; }
+.meeting .ratings span.quality.c{ background-color: #EDD32B; }
+.meeting .ratings span.quality.d{ background-color: #168716; }
+
+.meeting .ratings span.workload.a{ background-color: #B3BAF5;; }
+.meeting .ratings span.workload.b{ background-color: #6372E6; }
+.meeting .ratings span.workload.c{ background-color: #3044DB; }
+.meeting .ratings span.workload.d{ background-color: #2031BA; }
+
