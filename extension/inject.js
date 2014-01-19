@@ -52,7 +52,7 @@ var Anti = {
 		var $searchResults = $searchContainer.find('.list-item');
 		var $existingResult = $searchContainer.find('.list-item[data-id='+id+']');
 
-		if (sortBy != 'rating' && sortBy != 'workload' && sortBy != 'workload-rev') {
+		if (sortBy != 'rating' && sortBy != 'workload') {
 			// We'll make it easy on ourselves for the old sort indexes.
 			// Instead of writing a comparator function, let's accept that the
 			// sort order of the original app is correct and simply insert rating HTML
@@ -61,10 +61,11 @@ var Anti = {
 			$existingResult.find('.meeting').prepend(ratingHTML);
 		} else {
 
-			if (sortBy == 'workload' || sortBy == 'workload-rev') {
+			if (sortBy == 'workload') {
 
 				// We render the course, moving the courses in the list with the same ID
-				// to the top, then inserting with insertion sort (big O of N^2)
+				// to the top, then inserting with insertion sort (big O of N^2, but there
+				// shouldn't be too many search results returned)
 				var sortAttribute = 'data-'+sortBy;
 
 				$searchResults.each(function(idx, result) {
@@ -89,9 +90,6 @@ var Anti = {
 				    	return false;
 				    }
 				});
-			} else {
-				console.log('Something is fucked up');
-				console.log(sortBy);
 			}
 		}
 
@@ -111,12 +109,7 @@ var Anti = {
 		    quality,
 		    els;
 		if (sortBy == 'rating') {
-
-			// Generate a modified Underscore template taking the ratings as an input
-			// We do this so we don't have to mess with the Backbone model
-			// It's hacky, but it kind of has to be since we can't directly access the
-			// original site's instantiation of `var App`
-
+		
 			this.courses = App.results.models;
 			_(this.courses).each(function(course) {
 				ratings = LS.get(course.id);
