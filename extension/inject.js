@@ -1,5 +1,3 @@
-
-var counter = 0; 
 // My localStorage
 var LS = {
 	prepend: 'anti-censorship-',
@@ -76,21 +74,6 @@ var Anti = {
 					var comparatorValue = $(result).find('.ratings span['+sortAttribute+']').attr(sortAttribute);
 					// Sort value of the course to be inserted
 					var sortValue = (ratings_rend[sortBy] || 0);
-
-					/*
-					var myclass = $existingResult.find('h5').text();
-					var theclass = $(result).find('h5').text();
-					
-					console.log('comparing your class ' + myclass + ' with the list item ' + theclass);
-					if (!$(result).attr('data-new')) {
-						console.log('inserting right away since we hit the old items');
-					} else if (sortValue >= comparatorValue) {
-						console.log('your class value (' + sortValue + ') is BIGGER than the other ' + comparatorValue + '. inserting..');
-					
-					} else {
-						console.log('your class value (' + sortValue + ') is smaller than the other ' + comparatorValue);
-					}
-					*/
 
 					// All prepended courses get a data-new attribute, so if we don't
 					// see data-new we're at the unsorted results.
